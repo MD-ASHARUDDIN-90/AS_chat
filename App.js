@@ -10,6 +10,9 @@ import ContextWrapper from "./context/ContextWrapper";
 import Context from "./context/Context";
 import Profile from "./screens/Profile";
 import Home from "./TabBar";
+import Contacts from "./screens/Contacts";
+import Chat from "./screens/Chat";
+import ChatHeader from "./components/ChatHeader";
 
 LogBox.ignoreLogs([
 	"Setting a timer",
@@ -66,6 +69,16 @@ function App() {
 						name='home'
 						options={{ title: "Home" }}
 						component={Home}
+					/>
+					<Stack.Screen
+						name='contacts'
+						options={{ title: "Select Contacts" }}
+						component={Contacts}
+					/>
+					<Stack.Screen
+						name='chat'
+						component={Chat}
+						options={{ headerTitle: (props) => <ChatHeader {...props} /> }}
 					/>
 				</Stack.Navigator>
 			)}
